@@ -8,10 +8,12 @@
     <meta name="description" content="My website">
     <meta name="author" content="Jayson Liu">
     <link rel="stylesheet" href="style.css">
-    <script src="main.js"></script>
 </head>
 
 <body>
+    <!-- Star dust overlay for cosmic background effect -->
+    <div class="star-dust" aria-hidden="true"></div>
+
     <header>
         <section>
             <h1>My Website</h1>
@@ -29,25 +31,53 @@
             <p>Here are some of my recent projects:</p>
             <div class="projects-grid">
                 <div class="project-card">
-                    <a href="https://github.com/BruhNotOG/MyWebsite"><h3>My website</h3></a>
-                    <p>The website you are looking at right now</p>
+                    <!-- Shine effect element -->
+                    <div class="shine" aria-hidden="true"></div>
+                    <a href="https://github.com/BruhNotOG/MyWebsite">
+                        <h3>My website</h3>
+                        <p>The website you are looking at right now</p>
+                    </a>
                 </div>
                 <div class="project-card">
-                    <a href="https://github.com/BruhNotOG/ProjectBeatsRemix"><h3>Project Beats Remix</h3></a>
-                    <p>My big ongoing project using python and pygame</p>
+                    <div class="shine" aria-hidden="true"></div>
+                    <a href="https://github.com/BruhNotOG/ProjectBeatsRemix">
+                        <h3>Project Beats Remix</h3>
+                        <p>My big ongoing project using python and pygame</p>
+                    </a>
                 </div>
                 <div class="project-card">
-                    <a href="https://github.com/BruhNotOG/SquareGrowingPygame"><h3>Square Growing Game</h3></a>
-                    <p>My first project using python and pygame</p>
+                    <div class="shine" aria-hidden="true"></div>
+                    <a href="https://github.com/BruhNotOG/SquareGrowingPygame">
+                        <h3>Square Growing Game</h3>
+                        <p>My first project using python and pygame</p>
+                    </a>
                 </div>
             </div>
         </section>
     </main>
+
     <footer>
         <section>
             <p>&copy; 2026 My Website. All rights reserved.</p>
         </section>
     </footer>
+
+    <!-- Mouse tracking for glass light effects -->
+    <script>
+        document.querySelectorAll('.glass').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                card.style.setProperty('--mouse-x', `${x}%`);
+                card.style.setProperty('--mouse-y', `${y}%`);
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.setProperty('--mouse-x', '50%');
+                card.style.setProperty('--mouse-y', '50%');
+            });
+        });
+    </script>
 </body>
 
 </html>
